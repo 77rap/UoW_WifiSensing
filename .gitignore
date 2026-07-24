@@ -217,5 +217,29 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# expcept
+# except
 .claude/
+document/
+
+# ---- Project-specific: WiFi sensing (Stage 2) ----
+# Simulated datasets: large (~100 MB each) and fully regenerable from
+# data_generation_ur10.ipynb (seeded/deterministic), so not versioned.
+# GitHub rejects files >100 MB anyway.
+*.npz
+*.npy
+
+# Trained model checkpoints: binary, regenerable by re-running training.
+*.pt
+*.pth
+*.ckpt
+
+# Other heavy array / data dumps, if any appear.
+*.h5
+*.hdf5
+*.mat
+*.pkl
+
+# OS / cloud-sync cruft
+.DS_Store
+Thumbs.db
+desktop.ini

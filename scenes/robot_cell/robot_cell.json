@@ -1,0 +1,245 @@
+{
+  "scene_name": "robot_cell",
+  "scenario": "human-robot collaborative safety cell",
+  "units": "metres; +z up; floor z=0; cell centred at origin",
+  "room": {
+    "x": 8.0,
+    "y": 6.0,
+    "z": 4.0,
+    "wall_t": 0.15
+  },
+  "materials": {
+    "wall": "concrete",
+    "ceiling": "metal",
+    "equipment": "metal"
+  },
+  "objects": [
+    {
+      "name": "Robot_base",
+      "size": [
+        0.6,
+        0.6,
+        0.7
+      ],
+      "center": [
+        0.0,
+        0.0,
+        0.35
+      ],
+      "material": "metal",
+      "removable_for_ref": true
+    },
+    {
+      "name": "Robot_shoulder",
+      "size": [
+        0.45,
+        0.45,
+        0.5
+      ],
+      "center": [
+        0.0,
+        0.0,
+        0.95
+      ],
+      "material": "metal",
+      "removable_for_ref": true
+    },
+    {
+      "name": "Robot_arm",
+      "size": [
+        1.0,
+        0.3,
+        0.3
+      ],
+      "center": [
+        0.65,
+        0.0,
+        1.25
+      ],
+      "material": "metal",
+      "removable_for_ref": true
+    },
+    {
+      "name": "Worktable",
+      "size": [
+        1.2,
+        0.8,
+        0.9
+      ],
+      "center": [
+        1.5,
+        0.0,
+        0.45
+      ],
+      "material": "metal",
+      "removable_for_ref": false
+    },
+    {
+      "name": "Cabinet",
+      "size": [
+        0.8,
+        0.6,
+        1.8
+      ],
+      "center": [
+        -3.2,
+        -2.2,
+        0.9
+      ],
+      "material": "metal",
+      "removable_for_ref": false
+    },
+    {
+      "name": "Conveyor",
+      "size": [
+        2.5,
+        0.6,
+        0.6
+      ],
+      "center": [
+        0.0,
+        -2.4,
+        0.3
+      ],
+      "material": "metal",
+      "removable_for_ref": false
+    },
+    {
+      "name": "Guard_panel",
+      "size": [
+        0.1,
+        2.0,
+        1.2
+      ],
+      "center": [
+        -1.8,
+        1.4,
+        0.6
+      ],
+      "material": "metal",
+      "removable_for_ref": false
+    }
+  ],
+  "robot_objects": [
+    "Robot_base",
+    "Robot_shoulder",
+    "Robot_arm"
+  ],
+  "hazard_zone": {
+    "type": "rect",
+    "x_min": -1.6,
+    "x_max": 2.4,
+    "y_min": -1.8,
+    "y_max": 1.8
+  },
+  "hazard_zone_meaning": "robot reach envelope",
+  "worker_region": {
+    "type": "rect_with_exclusions",
+    "x_min": -3.5,
+    "x_max": 3.5,
+    "y_min": -2.5,
+    "y_max": 2.5,
+    "exclusions": [
+      {
+        "name": "Robot_base",
+        "x_min": -0.6,
+        "x_max": 0.6,
+        "y_min": -0.6,
+        "y_max": 0.6
+      },
+      {
+        "name": "Robot_shoulder",
+        "x_min": -0.525,
+        "x_max": 0.525,
+        "y_min": -0.525,
+        "y_max": 0.525
+      },
+      {
+        "name": "Robot_arm",
+        "x_min": -0.15000000000000002,
+        "x_max": 1.4500000000000002,
+        "y_min": -0.44999999999999996,
+        "y_max": 0.44999999999999996
+      },
+      {
+        "name": "Worktable",
+        "x_min": 0.6000000000000001,
+        "x_max": 2.4,
+        "y_min": -0.7,
+        "y_max": 0.7
+      },
+      {
+        "name": "Cabinet",
+        "x_min": -3.9000000000000004,
+        "x_max": -2.5,
+        "y_min": -2.8000000000000003,
+        "y_max": -1.6
+      },
+      {
+        "name": "Conveyor",
+        "x_min": -1.55,
+        "x_max": 1.55,
+        "y_min": -3.0,
+        "y_max": -1.7999999999999998
+      },
+      {
+        "name": "Guard_panel",
+        "x_min": -2.15,
+        "x_max": -1.4500000000000002,
+        "y_min": 0.09999999999999987,
+        "y_max": 2.7
+      }
+    ]
+  },
+  "suggested_tx": [
+    {
+      "name": "iot_cabinet",
+      "pos": [
+        -3.2,
+        -2.2,
+        1.85
+      ],
+      "host": "cabinet"
+    },
+    {
+      "name": "iot_table",
+      "pos": [
+        2.0,
+        0.45,
+        1.0
+      ],
+      "host": "table"
+    },
+    {
+      "name": "iot_conveyor",
+      "pos": [
+        1.2,
+        -2.4,
+        0.65
+      ],
+      "host": "conveyor"
+    },
+    {
+      "name": "iot_eastwall",
+      "pos": [
+        3.85,
+        1.5,
+        2.2
+      ],
+      "host": "eastwall"
+    }
+  ],
+  "suggested_ap": {
+    "pos": [
+      2.0,
+      1.5,
+      3.9
+    ],
+    "n_ant": 4,
+    "mount": "ceiling"
+  },
+  "variants": {
+    "robot": "robot_cell_robot.xml",
+    "norobot": "robot_cell_norobot.xml"
+  }
+}

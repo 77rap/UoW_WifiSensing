@@ -1,0 +1,81 @@
+<scene version="3.0.0">
+    <integrator type="path"/>
+
+    <bsdf type="itu-radio-material" id="mat-concrete">
+        <string name="type" value="concrete"/>
+    </bsdf>
+    <bsdf type="itu-radio-material" id="mat-metal">
+        <string name="type" value="metal"/>
+    </bsdf>
+
+    <shape type="cube" id="Floor">
+        <transform name="to_world">
+            <scale x="6.0000" y="5.0000" z="0.0750"/>
+            <translate x="0.0000" y="0.0000" z="-0.0750"/>
+        </transform>
+        <ref id="mat-concrete"/>
+    </shape>
+    <shape type="cube" id="Ceiling">
+        <transform name="to_world">
+            <scale x="6.0000" y="5.0000" z="0.0750"/>
+            <translate x="0.0000" y="0.0000" z="3.5750"/>
+        </transform>
+        <ref id="mat-metal"/>
+    </shape>
+    <shape type="cube" id="Wall_N">
+        <transform name="to_world">
+            <scale x="6.0000" y="0.0750" z="1.7500"/>
+            <translate x="0.0000" y="5.0750" z="1.7500"/>
+        </transform>
+        <ref id="mat-concrete"/>
+    </shape>
+    <shape type="cube" id="Wall_S">
+        <transform name="to_world">
+            <scale x="6.0000" y="0.0750" z="1.7500"/>
+            <translate x="0.0000" y="-5.0750" z="1.7500"/>
+        </transform>
+        <ref id="mat-concrete"/>
+    </shape>
+    <shape type="cube" id="Wall_E">
+        <transform name="to_world">
+            <scale x="0.0750" y="5.0000" z="1.7500"/>
+            <translate x="6.0750" y="0.0000" z="1.7500"/>
+        </transform>
+        <ref id="mat-concrete"/>
+    </shape>
+    <shape type="cube" id="Wall_W">
+        <transform name="to_world">
+            <scale x="0.0750" y="5.0000" z="1.7500"/>
+            <translate x="-6.0750" y="0.0000" z="1.7500"/>
+        </transform>
+        <ref id="mat-concrete"/>
+    </shape>
+    <shape type="cube" id="CNC_machine">
+        <transform name="to_world">
+            <scale x="0.8000" y="0.5000" z="0.8000"/>
+            <translate x="0.0000" y="1.9000" z="0.8000"/>
+        </transform>
+        <ref id="mat-metal"/>
+    </shape>
+    <shape type="cube" id="Cabinet">
+        <transform name="to_world">
+            <scale x="0.2500" y="0.3000" z="0.9000"/>
+            <translate x="-2.5000" y="-0.5000" z="0.9000"/>
+        </transform>
+        <ref id="mat-metal"/>
+    </shape>
+    <shape type="cube" id="Operator_bench">
+        <transform name="to_world">
+            <scale x="0.6000" y="0.2500" z="0.4500"/>
+            <translate x="0.0000" y="-2.2000" z="0.4500"/>
+        </transform>
+        <ref id="mat-metal"/>
+    </shape>
+    <shape type="cube" id="Pallet">
+        <transform name="to_world">
+            <scale x="0.4000" y="0.4000" z="0.2500"/>
+            <translate x="2.2000" y="0.3000" z="0.2500"/>
+        </transform>
+        <ref id="mat-metal"/>
+    </shape>
+</scene>
