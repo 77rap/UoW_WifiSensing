@@ -228,10 +228,13 @@ document/
 *.npz
 *.npy
 
-# Trained model checkpoints: binary, regenerable by re-running training.
+# Trained model checkpoints: ignore by default (binary), BUT keep the
+# small multi-task model checkpoints -- useful to reuse without retraining
+# (~1.6 MB each; the sweep writes csi_multitask_<name>.pt).
 *.pt
 *.pth
 *.ckpt
+!csi_multitask_*.pt
 
 # Other heavy array / data dumps, if any appear.
 *.h5
