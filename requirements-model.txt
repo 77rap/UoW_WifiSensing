@@ -1,0 +1,33 @@
+# Environment for the MODEL / analysis notebook (csi_multitask_v1.ipynb).
+# Deliberately does NOT include Sionna: the data-generation notebook needs
+# Sionna's numpy==2.0.2 pin, which breaks stock torch (the "partially
+# initialized torch / circular import" error). Keep the two environments
+# separate -- data-gen in one (requirements-datagen.txt), model in another.
+#
+# ---------------------------------------------------------------------------
+# LAB MACHINE (Windows, global Python 3.14, no conda) -- one-time setup.
+# GPU torch CONFIRMED WORKING 2026-07-31: download.pytorch.org is reachable
+# (the old "URL-blocked" note from Sessions 4-5 was STALE) and torch
+# 2.12.1+cu128 sees the Blackwell GPU. A plain `pip install -r` would pull
+# the CPU torch from PyPI, so install torch FIRST from the cu128 index, then
+# the rest. Calling the venv python directly avoids PowerShell activation:
+#     python -m venv .venv-model
+#     .venv-model\Scripts\python.exe -m pip install --upgrade pip
+#     .venv-model\Scripts\python.exe -m pip install torch --index-url https://download.pytorch.org/whl/cu128
+#     .venv-model\Scripts\python.exe -m pip install -r requirements-model.txt
+#     .venv-model\Scripts\python.exe -c "import torch; print(torch.cuda.is_available())"   # -> True
+# The cu128 wheel bundles its own CUDA runtime (no system toolkit needed);
+# driver 595.71 + Blackwell are fine. .venv-model is git-ignored. Keep it
+# Sionna-free. The full sweep now runs on the lab GPU or Colab -- either.
+#
+# NOTE: the `torch` line below has no CUDA suffix on purpose. On its own it
+# resolves to the CPU build from PyPI (fine for a CPU-only machine); to get
+# the GPU build, install torch from the cu128 index FIRST as shown above so
+# it is already satisfied when this file is processed.
+# ---------------------------------------------------------------------------
+
+torch>=2.2
+numpy>=1.26
+pandas>=2.0
+matplotlib>=3.7
+scikit-learn>=1.3

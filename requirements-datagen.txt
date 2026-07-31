@@ -1,0 +1,20 @@
+# Environment for the DATA-GENERATION notebook (Sionna RT ray tracing).
+# KEEP THIS SEPARATE from requirements-model.txt: Sionna pins an old numpy
+# (numpy 2.0.2) that breaks stock torch ("partially initialized torch /
+# circular import"). Two envs, two venvs -- never one shared env.
+#
+# Lab machine (Windows, no conda) -- one-time setup:
+#     python -m venv .venv-datagen
+#     .venv-datagen\Scripts\Activate.ps1
+#     pip install -r requirements-datagen.txt
+#
+# GPU note: Sionna ray tracing uses Dr.Jit's CUDA backend, whose wheels
+# come from PyPI -- NOT from the blocked download.pytorch.org. So GPU ray
+# tracing works on the lab machine with no admin and no URL workaround
+# (this is the path that already worked in Sessions 5-6). No torch needed
+# here (Sionna 2.x dropped its hard torch dependency).
+#
+# Sionna installed as 2.0.1 in earlier sessions; drjit + mitsuba come in
+# as dependencies.
+
+sionna>=2.0,<3
