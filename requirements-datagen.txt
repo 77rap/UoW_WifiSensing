@@ -18,3 +18,12 @@
 # as dependencies.
 
 sionna>=2.0,<3
+matplotlib>=3.7   # Sionna doesn't pull this in; the data-gen sanity-plot cells need it
+mitsuba           # Sionna RT's ray-tracing engine (+ drjit); usually a sionna dep
+drjit
+
+# HEADS-UP (lab, Python 3.14): mitsuba/drjit may not have 3.14 wheels yet. They
+# ARE already installed + working in the lab's GLOBAL Python 3.14 (proven in the
+# early sessions -- cuda_ad_mono_polarized on the GPU). If a fresh venv can't
+# pip-install them, just run the data-gen notebook in the GLOBAL interpreter --
+# data-gen never imports torch, so there is no numpy/torch conflict to avoid here.
