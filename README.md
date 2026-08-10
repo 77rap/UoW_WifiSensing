@@ -1,4 +1,4 @@
-# UoW WiFi Sensing — Stage 2
+# UoW WiFi Sensing
 
 Master's dissertation project: **device-free worker sensing from WiFi
 channel data in a simulated human–robot factory cell.**
